@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - TIF-AGB-3</title>
+  <link rel="icon" type="image/x-icon" href="images/Favicon.ico">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+  background: url('images/bacground.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  margin: 0; /* Tambahkan ini untuk memastikan tidak ada spasi */
+  padding: 0; /* Hapus padding atas */
+}
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .logo-universitas {
+      position:absolute;
+      top: 10px;
+      left: 20px;
+      height: 60px;
+      width: 62px;
+      transition-duration: 200ms;
+    }
+
+    header,
+    nav,
+    footer {
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 15px;
+    }
+
+    header h1 {
+      font-size: 42px;
+      color: #FFD700;
+      user-select: none;
+      /* Menambahkan warna yang sama dengan tulisan PRODUK */
+    }
+
+    nav a {
+      color: #ffcc00;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: rgb(253, 255, 111);
+      text-shadow: 0 0 3px lightyellow;
+    }
+
+    .container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 40px 30px 30px 30px; /* Tambahkan padding atas 40px */
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+    h2 {
+      text-align: center;
+      color: #ffcc00;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #ffcc00;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #333;
+      font-size: 15px;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 5px #ffcc00;
+    }
+
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    button,
+    .btn-link {
+      flex: 1;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    button {
+      background-color: rgb(173, 255, 47);
+      color: white;
+      text-shadow: 0 0 3px black;
+    }
+
+    button:hover {
+      background-color: rgb(180, 255, 50);
+      box-shadow: 0 0 10px greenyellow;
+    }
+
+    .btn-secondary {
+      background-color: #3498db;
+      color: white;
+      text-shadow: 0 0 3px black;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgb(0, 220, 255);
+      box-shadow: 0 0 10px cyan;
+    }
+
+    .btn-wa {
+      background-color: #25d366;
+      margin: 30px auto 0;
+      display: block;
+      width: fit-content;
+    }
+
+    .btn-wa:hover {
+      background-color: #3bd77e;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="images/logo1.png" alt="Logo Universitas" style="height: 60px; width: 62px; border-radius: 100%;" class="logo-universitas">
+    <h1 style="font-family :'Lucida Sans'; text-shadow: 0 0 5px black;">3XPO TIF-AGB</h1>
+    <img src="images/logo_kelompok.png" alt="Logo Kelompok" style="height: 65px; border-radius: 50%;">
+  </header>
+
+  <nav>
+    <a href="index.html">BERANDA</a>
+    <a href="produk.html">PRODUK</a>
+    <a href="keranjang.html">KERANJANG</a>
+    <a href="checkout.html" style="font-size: larger; text-shadow: 0 0 3px orange; color : white">CHECKOUT</a>
+    <a href="tentang.html">TENTANG KAMI</a>
+  </nav>
+
+  <div class="container">
+    <h2 style="text-shadow: 0 0 4px black;">ISI BIODATA KAMU</h2>
+    <div class="total">Total Pembayaran: <span id="total-harga" style="color: GreenYellow; text-shadow: 0 0 3px black;">Rp0</span></div>
+
+    <form id="form-checkout">
+      <label>Nama Lengkap:</label>
+      <input type="text" name="nama" required>
+
+      <label>Alamat Pengiriman:</label>
+      <textarea name="alamat" rows="3" required></textarea>
+
+      <label>Nomor HP:</label>
+      <input type="tel" name="hp" required>
+
+      <label>Catatan Tambahan (opsional):</label>
+      <textarea name="catatan" rows="2"></textarea>
+
+      <div class="button-group">
+        <button type="submit">Pesan Sekarang</button>
+        <a href="produk.html" class="btn-link btn-secondary">Kembali ke Menu</a>
+      </div>
+    </form>
+  </div>
+
+  <footer>&copy; 2025 3XPO TIF-AGB Unkriswina Sumba</footer>
+
+  <script>
+    // Mengambil total harga dari localStorage
+    const totalHarga = JSON.parse(localStorage.getItem("totalHarga")) || 0;
+    const totalHargaElement = document.getElementById("total-harga");
+    totalHargaElement.textContent = `Rp${totalHarga.toLocaleString()}`;
+
+    // Mengambil cart dari localStorage
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Proses pengiriman ke WhatsApp
+    document.getElementById("form-checkout").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nama = this.nama.value;
+      const alamat = this.alamat.value;
+      const hp = this.hp.value;
+      const catatan = this.catatan.value || "-";
+
+      let daftarPesanan = "";
+      let totalHarga = 0;
+
+      cart.forEach((item, index) => {
+        // Pastikan harga dan qty adalah angka yang valid
+        const harga = Number(item.harga) || 0;
+        const qty = Number(item.qty) || 1;
+        const subtotal = harga * qty;
+
+        if (subtotal > 0) {
+          daftarPesanan += `${index + 1}. ${item.nama} x ${qty} = Rp${subtotal.toLocaleString()}\n`;
+          totalHarga += subtotal;
+        }
+      });
+
+      // Menyiapkan pesan untuk WhatsApp
+      const pesan = `Halo Admin, nama saya ${nama}\ningin melakukan pemesanan:\n\n` +
+        `Alamat: ${alamat}\n` +
+        `No HP: ${hp}\n` +
+        `Catatan: ${catatan}\n\n` +
+        `Pesanan:\n${daftarPesanan}\n` +
+        `Total Harga: Rp${totalHarga.toLocaleString()}`;
+
+      // Mengirim pesan ke WhatsApp
+      const nomorAdmin = "6282146632759"; // Ganti dengan nomor admin yang sesuai
+      const encodedPesan = encodeURIComponent(pesan);
+      window.open(`https://wa.me/${nomorAdmin}?text=${encodedPesan}`, "_blank");
+
+      // Hapus cart setelah checkout
+      localStorage.removeItem("cart");
+
+      // Redirect ke halaman utama
+      window.location.href = "index.html";
+    });
+  </script>
+
+</body>
+
+</html>
